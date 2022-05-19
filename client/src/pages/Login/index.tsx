@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import logo from '../../assets/logo_ebytr.svg';
 // import { loginRequest, tokenValidate } from '../../service/api';
-import { ILogin } from '../../types/login.interface';
-import { LoginFieldTypes } from '../../types/loginFields.types';
+import { ILogin } from '../../types/Login.interface';
+import { LoginFieldTypes } from '../../types/LoginFields.type';
 import { loginFieldsTypes } from '../../utils/loginFieldsType';
 import { loginSchema } from '../../validations/login.validation';
 
@@ -65,8 +65,8 @@ export function Login() {
 
   return (
     <div
-      // eslint-disable-next-line max-len
-      className="vw-100 vh-100 d-flex flex-column justify-content-start align-items-center"
+      className={ `vw-100 vh-100 d-flex flex-column justify-content-start
+      align-items-center` }
     >
       <img
         className="mb-5 mt-4"
