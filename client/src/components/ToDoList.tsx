@@ -1,9 +1,10 @@
 import moment from 'moment';
-import { NotePencil, X } from 'phosphor-react';
+import { X } from 'phosphor-react';
 import React, { useContext } from 'react';
 import { Button, ListGroup } from 'react-bootstrap';
 import { ToDoListContext } from '../contexts/ToDoList.context';
 import { statusTask } from '../utils/statusTask';
+import { EditTask } from './EditTask';
 
 export function ToDoList() {
   const { tasks } = useContext(ToDoListContext);
@@ -51,17 +52,7 @@ export function ToDoList() {
           <div
             className="w-50 h-100 d-flex align-items-center"
           >
-            <Button
-              className={ `d-flex justify-content-center align-items-center
-              mx-auto w-25 mh-100` }
-              variant="warning"
-              type="button"
-              data-toggle="tooltip"
-              title="Editar tarefa"
-            >
-              <NotePencil weight="bold" style={ { minWidth: 'max-content' } } />
-            </Button>
-
+            <EditTask taskId={ id } />
             <Button
               className={ `d-flex justify-content-center align-items-center
                 mx-auto w-25 mh-100` }
