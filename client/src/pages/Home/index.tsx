@@ -5,7 +5,7 @@ export function Home() {
   return (
     <>
       <Header />
-      <section>
+      <section style={ { backgroundColor: '#FBFBFC', height: 'calc(100vh - 9rem)' } }>
         Home
       </section>
     </>

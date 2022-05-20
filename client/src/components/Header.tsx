@@ -14,20 +14,21 @@ export function Header() {
   };
   return (
     <header
-      className={ `p-0 m-0 ps-4 border-bottom rounded-2 d-flex align-items-center
+      className={ `p-0 m-0 ps-4 border-bottom rounded-2 d-flex 
       justify-content-between` }
-      style={ { height: '4rem' } }
+      style={ { height: '9rem', backgroundColor: '#FFFFFF' } }
     >
       <img
-        style={ { width: '4rem' } }
+        className="align-self-baseline"
+        style={ { width: '4.8rem' } }
         src={ logo }
         alt="logo Ebytr to do list"
       />
       <CreateTask onCreateTask={ (task: ITask) => { console.log(task); } } />
       <Button
-        className="h-100 rounded-0"
-        style={ { width: '5rem' } }
-        variant="primary"
+        className="rounded-2 mt-2 me-2"
+        style={ { width: '4.8rem', height: '2.8rem' } }
+        variant="outline-success"
         type="button"
         onClick={ handleLogout }
       >

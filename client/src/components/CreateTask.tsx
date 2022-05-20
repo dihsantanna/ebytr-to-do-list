@@ -27,12 +27,14 @@ export function CreateTask({ onCreateTask }: CreateTaskProps) {
 
   return (
     <Form
-      className="d-flex justify-content-center align-items-center w-50"
+      className={ `align-self-start d-flex justify-content-center align-items-center
+      w-50 mt-3` }
       onSubmit={ handleSubmit }
     >
-      <Form.Group>
-        <Form.Label className="mb-0 me-2" htmlFor="title-task">
+      <Form.Group className="w-50">
+        <Form.Label className="my-0 w-100" htmlFor="title-task">
           <Form.Control
+            className="py-2"
             id="title-task"
             type="text"
             placeholder="Qual a sua Tarefa?"
@@ -43,6 +45,7 @@ export function CreateTask({ onCreateTask }: CreateTaskProps) {
         </Form.Label>
       </Form.Group>
       <Button
+        className="ms-3"
         variant="outline-success"
         type="submit"
       >
