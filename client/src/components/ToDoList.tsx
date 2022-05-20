@@ -1,9 +1,9 @@
 import moment from 'moment';
-import { X } from 'phosphor-react';
 import React, { useContext } from 'react';
-import { Button, ListGroup } from 'react-bootstrap';
+import { ListGroup } from 'react-bootstrap';
 import { ToDoListContext } from '../contexts/ToDoList.context';
 import { statusTask } from '../utils/statusTask';
+import { DeleteTask } from './DeleteTask';
 import { EditTask } from './EditTask';
 
 export function ToDoList() {
@@ -53,17 +53,7 @@ export function ToDoList() {
             className="w-50 h-100 d-flex align-items-center"
           >
             <EditTask taskId={ id } />
-            <Button
-              className={ `d-flex justify-content-center align-items-center
-                mx-auto w-25 mh-100` }
-              variant="danger"
-              type="button"
-              data-toggle="tooltip"
-              title="Excluir tarefa"
-            >
-              <X weight="bold" style={ { minWidth: 'max-content' } } />
-            </Button>
-
+            <DeleteTask taskId={ id } />
           </div>
         </ListGroup.Item>
       )) }
