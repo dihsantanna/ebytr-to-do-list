@@ -1,16 +1,12 @@
 import moment from 'moment';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { ITask } from '../types/Task.interface';
+import { ToDoListContext } from '../contexts/ToDoList.context';
 import { statusTask } from '../utils/statusTask';
 
-interface CreateTaskProps {
-  // eslint-disable-next-line no-unused-vars
-  onCreateTask(task: ITask): void;
-}
-
-export function CreateTask({ onCreateTask }: CreateTaskProps) {
+export function CreateTask() {
   const [task, setTask] = useState('');
+  const { setUserTasks } = useContext(ToDoListContext);
   const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = target;
     setTask(value);
@@ -18,11 +14,14 @@ export function CreateTask({ onCreateTask }: CreateTaskProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    onCreateTask({
-      task,
-      status: statusTask[0],
-      createdAt: moment().utc().format('DD/MM/YYYY HH:mm:ss'),
-    });
+    setUserTasks((prevState) => ({
+      ...prevState,
+      tasks: [...prevState.tasks, {
+        task,
+        status: statusTask[0],
+        createdAt: moment().utc().format('DD/MM/YYYY HH:mm:ss'),
+      }],
+    }));
     setTask('');
   };
 
