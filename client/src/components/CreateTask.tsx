@@ -1,4 +1,5 @@
 import moment from 'moment';
+import uniqid from 'uniqid';
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { ToDoListContext } from '../contexts/ToDoList.context';
@@ -17,6 +18,7 @@ export function CreateTask() {
     setUserTasks((prevState) => ({
       ...prevState,
       tasks: [...prevState.tasks, {
+        id: uniqid(),
         task,
         status: statusTask[0],
         createdAt: moment().utc().format('DD/MM/YYYY HH:mm:ss'),
