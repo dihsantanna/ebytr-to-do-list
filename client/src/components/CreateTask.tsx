@@ -5,6 +5,7 @@ import { ITask } from '../types/Task.interface';
 import { statusTask } from '../utils/statusTask';
 
 interface CreateTaskProps {
+  // eslint-disable-next-line no-unused-vars
   onCreateTask(task: ITask): void;
 }
 
