@@ -21,7 +21,7 @@ export function CreateTask() {
         id: uniqid(),
         task,
         status: statusTask[0],
-        createdAt: moment().utc().format('DD/MM/YYYY HH:mm:ss'),
+        createdAt: moment().utc().format('YYYY-MM-DD HH:mm:ss'),
       }],
     }));
     setTask('');
