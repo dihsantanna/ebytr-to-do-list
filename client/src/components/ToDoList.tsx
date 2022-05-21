@@ -17,7 +17,12 @@ export function ToDoList() {
   return (
 
     <ListGroup
-      style={ { width: '90vw', maxWidth: '76.8rem', maxHeight: 'calc(100vh - 9rem)' } }
+      style={ {
+        width: '90vw',
+        maxWidth: '76.8rem',
+        maxHeight: 'calc(100vh - 9rem)',
+        height: 'calc(100vh - 9rem)',
+      } }
       className="mx-auto overflow-auto square scrollbar-dusty-grass square thin"
       as="ol"
       numbered
