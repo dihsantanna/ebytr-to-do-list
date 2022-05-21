@@ -7,7 +7,7 @@ import { statusTask } from '../utils/statusTask';
 
 export function CreateTask() {
   const [task, setTask] = useState('');
-  const { setUserTasks } = useContext(ToDoListContext);
+  const { addTask } = useContext(ToDoListContext);
   const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = target;
     setTask(value);
@@ -15,15 +15,12 @@ export function CreateTask() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setUserTasks((prevState) => ({
-      ...prevState,
-      tasks: [...prevState.tasks, {
-        id: uniqid(),
-        task,
-        status: statusTask[0],
-        createdAt: moment().utc().format('YYYY-MM-DD HH:mm:ss'),
-      }],
-    }));
+    addTask({
+      id: uniqid(),
+      task,
+      status: statusTask[0],
+      createdAt: moment().utc().format('YYYY-MM-DD HH:mm:ss'),
+    });
     setTask('');
   };
 

@@ -8,18 +8,14 @@ interface DeleteTaskProps {
 }
 
 export function DeleteTask({ taskId }: DeleteTaskProps) {
-  const { tasks, setUserTasks } = useContext(ToDoListContext);
+  const { deleteTask } = useContext(ToDoListContext);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const deleteTask = () => {
-    const deleted = tasks.filter((task) => (task.id !== taskId));
-    setUserTasks((prevState) => ({
-      ...prevState,
-      tasks: deleted,
-    }));
+  const handleDeleteTask = () => {
+    deleteTask(taskId);
     handleShow();
   };
 
@@ -45,7 +41,7 @@ export function DeleteTask({ taskId }: DeleteTaskProps) {
           <Button variant="secondary" onClick={ handleClose }>
             Fechar
           </Button>
-          <Button variant="primary" onClick={ deleteTask }>
+          <Button variant="primary" onClick={ handleDeleteTask }>
             Confirmar
           </Button>
         </Modal.Footer>

@@ -14,10 +14,9 @@ type TaskKey = keyof ITask;
 export function EditTask({ taskId }: EditTaskProps) {
   const [show, setShow] = useState(false);
   const [editingTask, setEditingTask] = useState<ITask>({} as ITask);
-  const { tasks, setUserTasks } = useContext(ToDoListContext);
+  const { tasks, editTask } = useContext(ToDoListContext);
 
   const handleClose = () => {
-    setEditingTask({} as ITask);
     setShow(false);
   };
 
@@ -43,14 +42,7 @@ export function EditTask({ taskId }: EditTaskProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setUserTasks((prevState) => {
-      const replaceTask = prevState.tasks
-        .map((task) => (task.id === taskId ? editingTask : task));
-      return {
-        ...prevState,
-        tasks: replaceTask,
-      };
-    });
+    editTask(taskId, editingTask);
     handleClose();
   };
 

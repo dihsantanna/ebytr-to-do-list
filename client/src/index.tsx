@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
+import { ToDoListProvider } from './contexts/ToDoList.provider';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -11,7 +12,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <ToDoListProvider>
+        <App />
+      </ToDoListProvider>
     </BrowserRouter>
   </React.StrictMode>,
 );

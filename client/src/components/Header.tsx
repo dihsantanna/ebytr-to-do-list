@@ -4,9 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo_ebytr.svg';
 import { ToDoListContext } from '../contexts/ToDoList.context';
 import { CreateTask } from './CreateTask';
+import FilterTasks from './OrderTasks';
 
 export function Header() {
-  const { name } = useContext(ToDoListContext);
+  const { user: { name } } = useContext(ToDoListContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -46,11 +47,12 @@ export function Header() {
         <span
           className="text-decoration-underline fw-bolder text-success text-opacity-75"
         >
-          {`${name}`}
+          {name}
         </span>
         {' '}
         !
       </div>
+      <FilterTasks />
     </header>
   );
 }
