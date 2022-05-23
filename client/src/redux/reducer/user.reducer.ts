@@ -1,15 +1,19 @@
 /* eslint-disable no-underscore-dangle */
-import { createReducer } from '@reduxjs/toolkit';
-import { login } from '../actions/login.action';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { IUser } from '../../types/User.interface';
 
-const INITIAL_STATE = {
-  _id: '',
-  name: 'Diogo Sant\'Anna',
-};
-
-export const userReducer = createReducer(INITIAL_STATE, (builder) => {
-  builder.addCase(login, (state, action) => {
-    state._id = action.payload.user._id;
-    state.name = action.payload.user.name;
-  });
+const userSlice = createSlice({
+  name: 'user',
+  initialState: {
+    _id: '',
+    name: 'Diogo Sant\'Anna',
+  } as IUser,
+  reducers: {
+    loginUser(state: IUser, action: PayloadAction<IUser>) {
+      state._id = action.payload._id;
+      state.name = action.payload.name;
+    },
+  },
 });
+
+export const { reducer: userReducer, actions: { loginUser } } = userSlice;
