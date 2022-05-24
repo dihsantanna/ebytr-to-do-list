@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install:apps": "bash install.sh"
+    "install:apps": "bash install.sh",
+    "lint:all": "bash check_lint.sh"
   },
   "keywords": [],
   "author": "",
