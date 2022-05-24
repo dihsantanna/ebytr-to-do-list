@@ -1,0 +1,22 @@
+name: ESLint Checker
+
+on: [pull_request, push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    
+    - name: Set node version
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16
+    
+    - name: Install dependencies
+      run: npm run install:apps
+
+    - name: Check ESLint
+      run: npm run lint:all
