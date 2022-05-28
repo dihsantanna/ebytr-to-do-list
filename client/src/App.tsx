@@ -1,10 +1,12 @@
 import React from 'react';
+import { ToDoListProvider } from './contexts/ToDoList.provider';
+import { Routes } from './Routes';
 
 function App() {
   return (
-    <div className="App">
-      APP
-    </div>
+    <ToDoListProvider>
+      <Routes />
+    </ToDoListProvider>
   );
 }
 
